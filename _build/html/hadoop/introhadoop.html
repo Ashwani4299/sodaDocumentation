@@ -1,0 +1,309 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Introduction To Hadoop Ecosystem &mdash; Soda Foundation  documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Cloudera" href="cloudera.html" />
+    <link rel="prev" title="Why Big Data Is Most Sought-after?" href="../bigdata/bigdata.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Soda Foundation
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../zfs/typeofraids/raid.html">Type Of RAIDs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../harddrivemount/lunixfile.html">From Hard Drive To Mount Point</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../harddrivemount/zfsintro.html">An Introduction To The ZFS File System(zfs) For Lunix</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../harddrivemount/zfsconfig.html">ZFS Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../zdfs/storserver.html">High Level View Of HDFS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bigdata/bigdata.html">Why Big Data Is Most Sought-after?</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Introduction To Hadoop Ecosystem</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#data">Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#breif-history-of-hadoop">Breif History of Hadoop</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#help-was-at-hand-with-the-publication-of-a-paper-in-2003-that-described-the-architecture-of-googles-distributed-ilesystem-called-gfs-which-was-being-used-in-production-at-google">Help was at hand with the publication of a paper in 2003 that described the architecture of Google’s distributed ilesystem, called GFS, which was being used in production at Google</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#google-file-system-gfs-architecture">Google File System GFS Architecture.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#googles-query-processor">Google’s Query Processor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#what-hadoop-is-and-what-its-not">What Hadoop is, and what it’s not</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#the-core-of-hadoop">The core of Hadoop</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#the-hadoop-components">The Hadoop Components</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="cloudera.html">Cloudera</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../nat-network/nat.html">Nat Network</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Soda Foundation</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Introduction To Hadoop Ecosystem</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/hadoop/introhadoop.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="introduction-to-hadoop-ecosystem">
+<h1>Introduction To Hadoop Ecosystem<a class="headerlink" href="#introduction-to-hadoop-ecosystem" title="Permalink to this headline">¶</a></h1>
+<img alt="../_images/hadoop1.png" src="../_images/hadoop1.png" />
+<div class="section" id="data">
+<h2>Data<a class="headerlink" href="#data" title="Permalink to this headline">¶</a></h2>
+<p>We live in the data age. The size of the “digital universe” at 0.18 zettabytes in 2006, and isforecasting a tenfold growth by 2011 to 1.8 zettabytes.1 A zettabyte is 10^21 bytes, or equivalently one thousand exabytes, one million petabytes, or one billion terabytes.</p>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt>This lood of data is coming from many sources. Consider the following:</dt>
+<dd><ul class="first last">
+<li>The New York Stock Exchange generates about one terabyte of new trade data per day.</li>
+<li>Facebook hosts approximately 10 billion photos, taking up one petabyte of storage.</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<p><code class="docutils literal notranslate"><span class="pre">So</span> <span class="pre">there’s</span> <span class="pre">a</span> <span class="pre">lot</span> <span class="pre">of</span> <span class="pre">data</span> <span class="pre">out</span> <span class="pre">there.</span></code></p>
+</div>
+<div class="section" id="breif-history-of-hadoop">
+<h2>Breif History of Hadoop<a class="headerlink" href="#breif-history-of-hadoop" title="Permalink to this headline">¶</a></h2>
+<p>Hadoop has its origins in Apache Nutch, an open source web search engine, itself a part of the Lucene project</p>
+<p>Apache Nutch is a project of the Apache Software Foundation. Nutch was started in 2002. However, <cite>they realized that their architecture wouldn’t scale to the billions of pages on the Web</cite>.</p>
+<div class="section" id="help-was-at-hand-with-the-publication-of-a-paper-in-2003-that-described-the-architecture-of-googles-distributed-ilesystem-called-gfs-which-was-being-used-in-production-at-google">
+<h3>Help was at hand with the publication of a paper in 2003 that described the architecture of Google’s distributed ilesystem, called GFS, which was being used in production at Google<a class="headerlink" href="#help-was-at-hand-with-the-publication-of-a-paper-in-2003-that-described-the-architecture-of-googles-distributed-ilesystem-called-gfs-which-was-being-used-in-production-at-google" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>A GFS cluster consists of multiple nodes.These nodes are divided into two types: one Master node and a large number of Chunkservers</li>
+<li>In 2004, they set about writing an open source implementation, the Nutch Distributed Filesystem (NDFS).</li>
+<li>Hadoop was created by Doug Cutting and Michael J. Cafarella 2005. Doug, who was working at Yahoo at the time, named it after his son’s toy elephant. It was originally developed to support distribution for the Nutch search engine project.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="google-file-system-gfs-architecture">
+<h2>Google File System GFS Architecture.<a class="headerlink" href="#google-file-system-gfs-architecture" title="Permalink to this headline">¶</a></h2>
+<img alt="../_images/hadoop2.png" src="../_images/hadoop2.png" />
+</div>
+<div class="section" id="googles-query-processor">
+<h2>Google’s Query Processor<a class="headerlink" href="#googles-query-processor" title="Permalink to this headline">¶</a></h2>
+<p>Let’s see how Google processes Query</p>
+<img alt="../_images/hadoop3.png" src="../_images/hadoop3.png" />
+</div>
+<div class="section" id="what-hadoop-is-and-what-its-not">
+<h2>What Hadoop is, and what it’s not<a class="headerlink" href="#what-hadoop-is-and-what-its-not" title="Permalink to this headline">¶</a></h2>
+<img alt="../_images/hadoop4.png" src="../_images/hadoop4.png" />
+</div>
+<div class="section" id="the-core-of-hadoop">
+<h2>The core of Hadoop<a class="headerlink" href="#the-core-of-hadoop" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt>MapReduce</dt>
+<dd><ul class="first last">
+<li>Created at Google in 2004</li>
+<li>The MapReduce framework is the powerhouse behind most of today’s big data processing</li>
+<li>In addition to Hadoop, you’ll ind MapReduce inside MPP and NoSQL databases, such as Vertica or MongoDB.</li>
+<li>At its core, Hadoop is an open source MapReduce implementation, feb 2006. Funded by Yahoo</li>
+<li>The ability of MapReduce to distribute computation over multiple servers</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>HDFS</dt>
+<dd><ul class="first last">
+<li>MapReduce computation to take place, each server must have access to the data. This is the role of HDFS, the Hadoop Distributed File System.</li>
+<li>HDFS and MapReduce are robust.</li>
+<li>Servers in a Hadoop cluster can fail and not abort the computation process.</li>
+<li>HDFS ensures data is replicated with redundancy across the cluster.</li>
+<li>On completion of a calculation, a node will write its results back into HDFS.</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li>Improving programmability: Pig and Hive</li>
+<li>Improving data access: HBase, Sqoop and Flume</li>
+</ul>
+</div>
+<div class="section" id="the-hadoop-components">
+<h2>The Hadoop Components<a class="headerlink" href="#the-hadoop-components" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li><cite>Ambari</cite>   :- Deployment, coniguration and monitoring</li>
+<li><cite>Flume</cite>     :- Collection and import of log and event data</li>
+<li><cite>HDFS</cite>      :- Distributed redundant ile system for Hadoop</li>
+<li><cite>Hive</cite>      :- Data warehouse with SQL-like access</li>
+<li><cite>MapReduce</cite> :- Parallel computation on server clusters</li>
+<li><cite>Sqoop</cite>     :- Imports data from relational databases</li>
+<li><cite>Zookeeper</cite> :- Coniguration management and coordination</li>
+</ol>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="cloudera.html" class="btn btn-neutral float-right" title="Cloudera" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../bigdata/bigdata.html" class="btn btn-neutral float-left" title="Why Big Data Is Most Sought-after?" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Soda
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
